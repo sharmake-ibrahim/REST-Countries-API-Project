@@ -1,0 +1,33 @@
+@import "./Variables.scss";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+$largin-screens: 401px;
+
+@mixin Desktop{
+    @media (min-width:#{$largin-screens}) {
+        @content;
+    }
+}
+
+
+main {
+    min-height: 100vh;
+    min-width: 375px;
+    max-width: 100%;
+    padding-top: 3em;
+    display: grid;
+    place-items: center;
+    justify-content: center;
+    grid-template-columns: 100%;
+    background-color: $Very-dark-blue;
+
+    @include Desktop {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
