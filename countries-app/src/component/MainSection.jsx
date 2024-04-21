@@ -2,19 +2,20 @@ import React from "react";
 import Card from "./Card";
 import "../Scss/Main.scss";
 
-function MainSection() {
+function MainSection(props) {
+
+    console.log("Mainsection data", props)
     return(
         <main>
             <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/> 
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
+         {  
+                props.allCountries.map( (country)=> {
+                    <Card cardData = {country}/>
+                    console.log("for Each Country Data", country);
+                })
+        
+
+         }
         </main>
     )
 }

@@ -2,7 +2,7 @@ import React from "react";
 import "../Scss/Card.scss";
 
 function Card() {
-
+//  const {}
     return(
         <section>
             <div className="img">
