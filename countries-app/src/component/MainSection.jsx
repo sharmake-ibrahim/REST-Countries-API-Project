@@ -1,23 +1,40 @@
-import React from "react";
-import Card from "./Card";
-import "../Scss/Main.scss";
+    import React from "react";
+    import Card from "./Card";
+    import "../Scss/Main.scss";
+    import "../Scss/Card.scss";
 
-function MainSection(props) {
+    function MainSection(props) {
 
-    console.log("Mainsection data", props)
-    return(
-        <main>
-            <Card/>
-         {  
-                props.allCountries.map( (country)=> {
-                    <Card cardData = {country}/>
-                    console.log("for Each Country Data", country);
-                })
+
+    console.log(props.nations);
         
+    const nations = props.nations;
+        return(
+            <main>
+                {/* <Card/> */}
 
-         }
-        </main>
-    )
-}
+                {
+                    nations.map((nation, index)=> (
+                        <section key={index}>
+                        <div className="img">
+                            <img src={nation.flags.png} alt="country flage" />
+                     
+                        </div>
+                        <div className="info">
+                            <h3 className="name">{nation.name.common}</h3>
+                            <ul>
+                                <li>Population: <small> {nation.population}</small></li>
+                                <li>Region: <small>{nation.region}</small></li>
+                                <li> Capital: <small>{nation.capital[0]}</small></li>
+                            </ul>
+                        </div>
+                    </section>
+                    ))
+                }
+            
 
-export default MainSection;
+            </main>
+        )
+    }
+
+    export default MainSection;

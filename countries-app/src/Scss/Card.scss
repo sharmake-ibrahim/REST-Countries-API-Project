@@ -18,7 +18,8 @@
         
         img {
             max-height: 160px;
-            min-width: 264px;
+            width: 264px;
+            box-sizing: border-box;
             border-radius: 3px 3px 0 0;
         }
 

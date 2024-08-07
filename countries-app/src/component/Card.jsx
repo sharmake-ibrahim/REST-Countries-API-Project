@@ -1,5 +1,5 @@
 import React from "react";
-import "../Scss/Card.scss";
+// import "../Scss/Card.scss";
 
 function Card() {
 //  const {}
