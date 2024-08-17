@@ -1,20 +1,21 @@
 import React from "react";
 // import "../Scss/Card.scss";
 
-function Card() {
-//  const {}
+function Card({africaCountries}) {
+    console.log("card", africaCountries)
+//  c
     return(
         <section>
             <div className="img">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4A6gxU-v-uf3cocUYyIGxMYtjGKzAXkrYuw&s" alt="" />
+                <img src= {africaCountries.flags.png}alt={africaCountries.name.official} />
          
             </div>
             <div className="info">
-                <h3 className="name">Somalia</h3>
+                <h3 className="name">{africaCountries.name.official}</h3>
                 <ul>
-                    <li>Population: <small> 150000</small></li>
-                    <li>Region: <small>Africa</small></li>
-                    <li> Capital: <small>Mogadishu</small></li>
+                    <li>Population: <small> {africaCountries.population}</small></li>
+                    <li>Region: <small>{africaCountries.region}</small></li>
+                    <li> Capital: <small> {africaCountries.capital}</small></li>
                 </ul>
             </div>
         </section>

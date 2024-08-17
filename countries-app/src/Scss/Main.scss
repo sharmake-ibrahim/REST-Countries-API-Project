@@ -15,6 +15,115 @@ $largin-screens: 401px;
     }
 }
 
+header {
+    min-height: 100px;
+    min-width: 100%;
+    background-color: $card-bg-drk-mode;
+    color: $white;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+
+    h1 {
+        font-size: clamp(1rem, 4vw, 2rem);
+    }
+    .dark-mode {
+        display: none;
+        img {
+            max-height: 27px;
+        }
+    }
+
+    .show {
+        display: block;
+    }
+    .hide {
+        display: none;
+    }
+
+    .light-mode {
+        img {
+            max-height: 27px;
+        }
+    }
+
+    nav {
+        display: flex;
+        column-gap: 10px;
+        align-items: center;
+        cursor: pointer;
+    }
+   
+}
+
+
+.search-section {
+    min-height: 100px;
+    min-width: 100%;
+    background-color: $Very-dark-blue;
+    color: $white;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 1rem 2rem;
+    gap: 1rem 1rem;
+    flex-wrap: wrap;
+
+   
+
+
+        .btn-secondary {
+            background-color: $card-bg-drk-mode;
+            color: $white;
+            border: none;
+        }
+
+    .dropdown-menu {
+        margin-top: 10px;
+        background-color: $card-bg-drk-mode;
+        a {
+            color: $white;
+            &:hover {
+                background-color: $Very-dark-blue;
+            }
+        }
+        .active {
+            color: $white;
+            background-color: $Very-dark-blue;
+            &:hover {
+                background-color: $Very-dark-blue;
+            }
+        }
+    }
+
+    .searchBar {
+        min-height: 40px;
+        min-width: 330px;
+        border-radius: 5px;
+        background-color: $card-bg-drk-mode;
+        display: grid;
+        padding: 0 2rem;
+        
+        @include Desktop {
+            min-width: 480px;
+        }
+
+        input {
+            background-color: $card-bg-drk-mode;
+            color: $white;
+            max-width: 100%;
+            border: none;
+            outline: none;
+        }
+
+        input::placeholder  {
+            color: $white;
+        }
+    }
+
+}
 
 main {
     min-height: 100vh;
@@ -26,8 +135,18 @@ main {
     justify-content: center;
     grid-template-columns: 100%;
     background-color: $Very-dark-blue;
+    gap: 10px 17px;
+
+    .titleErro {
+        color: $white;
+        text-align: center;
+        font-size: 2rem;
+    }
 
     @include Desktop {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        
     }
+
+   
 }

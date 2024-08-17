@@ -1,6 +1,12 @@
       import React , {useState, useEffect}from 'react'
       import MainSection from './component/MainSection';
-
+      import { BrowserRouter, Routes, Route } from 'react-router-dom';
+      import Error from './component/Error';
+      import Layouts from './component/Layouts';
+      import Africa from './component/Africa';
+      import Asia from './component/Asia';
+      import America from "./component/America";
+      import Oceania from './component/Oceania';
 
       function App() {
 
@@ -23,7 +29,24 @@
           
 
           
-            <MainSection nations = {countries}/>
+            {/* <MainSection nations = {countries}/> */}
+
+            <BrowserRouter>
+                  <Routes>
+                        <Route path='/' element={<Layouts/>}>
+                              {/* <Route path='' element={<MainSection nations = {countries}/> }/> */}
+                             
+                              <Route index element={<MainSection nations = {countries}/> }/>
+                              <Route path='europe' element={<MainSection nations = {countries}/> }/>
+                              <Route path='africa' element= { <Africa/>}/>
+                              <Route path='asia' element= { <Asia/>}/>
+                              <Route path='america' element= { <America/>}/>
+                              <Route path='oceania' element= { <Oceania/>}/>
+
+                              <Route path='*' element={<Error/>}/>
+                        </Route>
+                  </Routes>
+            </BrowserRouter>
             
         
           </>

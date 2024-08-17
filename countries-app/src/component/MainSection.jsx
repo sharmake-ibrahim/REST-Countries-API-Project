@@ -1,17 +1,20 @@
-    import React from "react";
+    import React, { useState } from "react";
     import Card from "./Card";
     import "../Scss/Main.scss";
     import "../Scss/Card.scss";
+   
 
     function MainSection(props) {
-
+    
 
     console.log(props.nations);
         
     const nations = props.nations;
         return(
+
+            
             <main>
-                {/* <Card/> */}
+    
 
                 {
                     nations.map((nation, index)=> (
@@ -34,6 +37,8 @@
             
 
             </main>
+
+            
         )
     }
 
