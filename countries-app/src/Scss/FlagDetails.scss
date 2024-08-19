@@ -1,0 +1,133 @@
+@import "Variables";
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+$largin-screens: 679px;
+
+@mixin Desktop{
+    @media (min-width:#{$largin-screens}) {
+        @content;
+    }
+}
+
+.country-border {
+    min-width: 400px;
+
+
+    @include Desktop {
+        display: flex;
+        column-gap: 10px;
+        padding-left: 3rem;
+    }
+
+    .border {
+        display: flex;
+        gap: 0 10px;
+    }
+
+    .btn-success {
+        border-radius: none;
+        background-color: $card-bg-drk-mode;
+        border: none;
+        &:hover {
+            background-color: none ;
+        }
+    }
+
+    p {
+        padding-top: 7px;
+        font-size: 14px;
+    }
+
+    span {
+        @extend .btn-success;
+    }
+    
+}
+
+.Detail-container {
+    min-height: 100vh;
+    min-width: 400px;
+    max-width: 100%;
+    display: grid;
+    justify-content: center;
+    background-color: $Very-dark-blue;
+    color: $white;
+
+
+}
+
+.info-content {
+    display: flex; 
+    justify-content: space-around;
+    flex-direction: column;
+    align-content: center;
+    gap: 1rem;
+
+    @include Desktop {
+        flex-direction: row;
+    }
+
+    .text-one {
+        text-align: start;
+    }
+
+    .text-list {
+        h1 {
+        padding-bottom: -15px;
+        font-size: 2rem;
+        }
+    }
+}
+
+
+.info-div {
+    min-height: 100vh;
+    max-width: 370px;
+    display: block;
+    justify-content: center;
+    align-content: center;
+    @include Desktop {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        column-gap: 1.5rem;
+    }
+}
+
+
+.text-center {
+    @include Desktop() {
+        margin-top: 6rem;
+    }
+}
+.img-div {
+
+    min-height: 299px;
+    min-width: 320px;
+    max-height: 401px;
+    max-width: 560px;
+
+
+
+    img {
+        min-height: 299px;
+        min-width: 320px;
+        border-radius: 10px;
+        max-height: 401px;
+        max-width: 560px;
+        object-fit: contain;
+    }
+}
+
+
+.content-btn {
+    @include Desktop() {
+        margin-left: -10rem;
+    }
+}
+
+

@@ -7,6 +7,7 @@
       import Asia from './component/Asia';
       import America from "./component/America";
       import Oceania from './component/Oceania';
+      import FlagDetail from './component/FlagDetail';
 
       function App() {
 
@@ -39,6 +40,7 @@
                               <Route index element={<MainSection nations = {countries}/> }/>
                               <Route path='europe' element={<MainSection nations = {countries}/> }/>
                               <Route path='africa' element= { <Africa/>}/>
+                              <Route path='africa:id' element={<FlagDetail/>}/>
                               <Route path='asia' element= { <Asia/>}/>
                               <Route path='america' element= { <America/>}/>
                               <Route path='oceania' element= { <Oceania/>}/>
