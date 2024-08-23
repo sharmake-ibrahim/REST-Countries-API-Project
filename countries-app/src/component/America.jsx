@@ -1,7 +1,6 @@
 
 import {useEffect, useState} from "react";
-import Card from "./Card";
-import { AsyncCompiler } from "sass";
+
 
 const America = ()=>{ 
     const [america, setAmerica] = useState([])

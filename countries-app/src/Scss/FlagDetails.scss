@@ -14,26 +14,43 @@ $largin-screens: 679px;
 }
 
 .country-border {
-    min-width: 400px;
+    max-width: 400px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    align-items: center;
+
 
 
     @include Desktop {
-        display: flex;
-        column-gap: 10px;
-        padding-left: 3rem;
+    
+        padding-left: -2rem;
     }
 
     .border {
         display: flex;
-        gap: 0 10px;
+        column-gap: 15px;
+        flex-wrap: wrap;
+    
+
+        span {
+            @extend .btn-success;
+            padding: 0  15px;
+        }
+       
     }
 
     .btn-success {
-        border-radius: none;
         background-color: $card-bg-drk-mode;
         border: none;
+        padding: 5px 15px;
         &:hover {
             background-color: none ;
+        }
+
+        a {
+            color: $white;
         }
     }
 
@@ -42,9 +59,7 @@ $largin-screens: 679px;
         font-size: 14px;
     }
 
-    span {
-        @extend .btn-success;
-    }
+   
     
 }
 
@@ -76,9 +91,13 @@ $largin-screens: 679px;
     }
 
     .text-list {
+        min-width: 250px;
         h1 {
         padding-bottom: -15px;
-        font-size: 2rem;
+        font-size: clamp(1rem, 4vw, 1.5rem);
+        text-align: justify;
+        min-width: 200px;
+        
         }
     }
 }
@@ -86,7 +105,8 @@ $largin-screens: 679px;
 
 .info-div {
     min-height: 100vh;
-    max-width: 370px;
+    min-width: 370px;
+    max-width: 600px;
     display: block;
     justify-content: center;
     align-content: center;
@@ -114,7 +134,7 @@ $largin-screens: 679px;
 
 
     img {
-        min-height: 299px;
+        min-height: 400px;
         min-width: 320px;
         border-radius: 10px;
         max-height: 401px;
@@ -124,10 +144,30 @@ $largin-screens: 679px;
 }
 
 
-.content-btn {
-    @include Desktop() {
-        margin-left: -10rem;
+
+
+
+.content {
+    
+    .content-btn {
+        background-color: $card-bg-drk-mode;
+        border: none;
+        &:hover {
+            
+            background-color: $card-bg-drk-mode;
+        }
+        a {
+            color: $white;
+            text-decoration: none;
+            padding: 0 15px;
+            &:hover {
+                color: $Dark-mode-bg;
+            }
+           
+        }
+        @include Desktop() {
+            margin-left: -10rem;
+        }
     }
+    
 }
-
-

@@ -1,34 +1,38 @@
-import {useEffect, useState} from "react";
-import Card from "./Card";
+import { useContext} from "react";
+import { Link } from "react-router-dom";
+
+import DataContext from "../Data/Data";
 const Africa = ()=> {
-        const [africa, setAfrica] = useState([])
-    const getAfricaData = async ()=> {
-        try{
-            const url = "https://restcountries.com/v3.1/region/africa";
-            const res = await fetch(url);
-            const data = await res.json();
-                    console.log("africa data", data)
-
-            setAfrica(data);
-        } 
-        catch(error) {
-            console.error(error.massage)
-        }
         
-    }
+        const africa = useContext(DataContext);
 
-    useEffect( ()=> {
-            getAfricaData()
-    },[])
+        console.log(africa);
+   
     return(
         <main>
 
             
+            {africa.map( (country,index )=> (
+                <Link to={`/africa/${country.area}`} key={index} >
+                           <section>
+                                <div className="img">
+                                                <img src= {country.flags.png}alt={country.name.official} />
+                                         
+                                            </div>
+                                            <div className="info">
+                                                <h3 className="name">{country.name.official}</h3>
+                                                <ul>
+                                                    <li>Population: <small> {country.population}</small></li>
+                                                    <li>Region: <small>{country.region}</small></li>
+                                                    <li> Capital: <small> {country.capital}</small></li>
+                                                </ul>
+                                            </div>
+                                        </section>
 
-            {africa.map( (country)=> (
-                <Card africaCountries= {country}/>
-            ))}
-            
+             </Link>
+            ))} 
+             
+           
 
         </main>
     )

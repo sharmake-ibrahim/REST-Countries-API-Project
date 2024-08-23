@@ -1,31 +1,43 @@
-
-
+import { useContext } from "react";
+import {Link, useParams} from "react-router-dom";
+import DataContext from "../Data/Data"
 const FlagDetail = ()=> {
+        const africa = useContext(DataContext);
+        const {id} = useParams();
+
+        console.log("useParms", id);
+    
+        const countryDetail =  africa.find( (detial)=>  detial.area == Number(id));
+
+            console.log(" the clicked country", countryDetail);
+       
     return(
-        <section className="Detail-container">
+       <>
+       { <section className="Detail-container">
                 <div className="content">
-                <button type="button" class="btn btn-success content-btn">Back</button>
+                <button type="button" class="btn btn-success content-btn"> <Link to= "/africa">Back</Link></button>
                         <div className="info-div">
                             <div className="img-div">
-                                <img src="https://images.pexels.com/photos/69776/tulips-bed-colorful-color-69776.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+                                <img src= {countryDetail.flags.png} alt= {countryDetail.flags.alt} />
                             </div>
                                 <div className="split">
                                     <div className="info-content">
                                         <div className="text-one">
                                             
                                             <ul className="text-list">
-                                            <h1>Somalia</h1>
-                                                <li>Native Name: Somalia</li>
-                                                <li>Population: 30M</li>
-                                                <li>Region: Africa</li>
-                                                <li>Sub Region: East Africa</li>
-                                                <li>Capital: Mogadisho</li>
+                                            <h1> {countryDetail.name.official}</h1>
+                                                <li>Native Name: {countryDetail.name.common}</li>
+                                                <li>Population: {countryDetail.population}</li>
+                                                <li>Region: {countryDetail.region}</li>
+                                                <li>Sub Region: {countryDetail.subregion}</li>
+                                                <li>Capital: {countryDetail.capital[0]}</li>
                                             </ul>
                                         </div>
                                         <div className="text-two text-center">
                                         <ul className="text-list">
-                                                <li>Native Name: Somalia</li>
-                                                <li>Population: 30M</li>
+                                                <li>Top Level Domain: Somalia</li>
+                                                <li>Currencies: {`${countryDetail.currencies.MAD}`}</li>
+                                                <li>Languages: {`${countryDetail.languages.ara}, ${countryDetail.languages.ber}`}</li>
                                                
                                             </ul>
                                         </div>
@@ -33,9 +45,9 @@ const FlagDetail = ()=> {
                                         <div className="country-border">
                                             <p>Border countries:  </p>
                                             <div className="border">
-                                            <span>Kenya</span>
-                                            <span>Kenya</span>
-                                            <span>Kenya</span>
+                                            <span>{countryDetail.borders[0]}</span>
+                                            <span>{countryDetail.borders[1]}</span>
+                                            <span>{countryDetail.borders[2]}</span>
                                             </div>
                                            
                                         </div>
@@ -43,6 +55,9 @@ const FlagDetail = ()=> {
                         </div>
                 </div>
         </section>
+         ||<div className="Detail-container"> Country not found</div>}
+       
+       </>
     )
 }
 export default FlagDetail;

@@ -40,7 +40,7 @@
                               <Route index element={<MainSection nations = {countries}/> }/>
                               <Route path='europe' element={<MainSection nations = {countries}/> }/>
                               <Route path='africa' element= { <Africa/>}/>
-                              <Route path='africa:id' element={<FlagDetail/>}/>
+                              <Route path='africa/:id' element={<FlagDetail/>}/>
                               <Route path='asia' element= { <Asia/>}/>
                               <Route path='america' element= { <America/>}/>
                               <Route path='oceania' element= { <Oceania/>}/>
