@@ -8,6 +8,7 @@
       import America from "./component/America";
       import Oceania from './component/Oceania';
       import FlagDetail from './component/FlagDetail';
+      import AmericaFlagDetail from './component/AmericaFlagDetail';
 
       function App() {
 
@@ -43,10 +44,12 @@
                               <Route path='africa/:id' element={<FlagDetail/>}/>
                               <Route path='asia' element= { <Asia/>}/>
                               <Route path='america' element= { <America/>}/>
+                              <Route path='america/:id' element= { <AmericaFlagDetail/>}/>
                               <Route path='oceania' element= { <Oceania/>}/>
 
                               <Route path='*' element={<Error/>}/>
                         </Route>
+                        
                   </Routes>
             </BrowserRouter>
             

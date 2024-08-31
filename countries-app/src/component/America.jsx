@@ -1,9 +1,11 @@
 
 import {useEffect, useState} from "react";
+import { Link } from "react-router-dom";
 
 
 const America = ()=>{ 
     const [america, setAmerica] = useState([])
+    
     const getAmericaData = async ()=> {
         try {
             const url = " https://restcountries.com/v3.1/region/america";
@@ -25,6 +27,7 @@ const America = ()=>{
         <main>
 
             {america.map( (country, index)=> (
+            <Link to={`/america/${country.area}`} key={index}>
                    <section key={index}>
                    <div className="img">
                        <img src= {country.flags.png}alt={country.name.official} />
@@ -39,6 +42,7 @@ const America = ()=>{
                        </ul>
                    </div>
                </section>
+               </Link>
             ))}
 
         </main>
